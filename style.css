@@ -589,10 +589,8 @@ body {
 }
 
 .product_card {
-    display: flex;
-    flex-direction: column;
+    width: 250px; /* Set a fixed width for the product card */
     padding: 1rem;
-    gap: 1rem;
     margin: 1rem;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -600,13 +598,16 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+
 .product_image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 200px; /* Set the fixed height of the image container */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
     border-radius: 10px;
     margin-bottom: 1rem;
 }
+
+
 
 .price_stock {
     display: flex;

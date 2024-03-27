@@ -25,7 +25,6 @@ require_once 'helpers/conn_helpers.php';
 <body>
     <div class="wrapper">
         <aside id="sidebar">
-          
             <div class="sidebar-logo">
                 <img src="img/CircularLogo.jpg" alt="Logo"
                     style="width: 100%; max-width: 120px; display: block; margin: 0 auto;">
@@ -49,8 +48,8 @@ require_once 'helpers/conn_helpers.php';
             <div class="sidebar-footer">
                 <form action="controllers/Users.php" method="post" id="logout">
                     <input type="hidden" name="type" value="logout">
-                    <a href="javascript:{}" onclick="document.getElementById('logout').submit();" class="sidebar-link"
-                        title="Logout" id="logout" type="submit">
+                    <a href="javascript:{}" onclick="document.getElementById('logout').submit();"
+                        class="sidebar-link" title="Logout" id="logout" type="submit">
                         <i class="lni lni-exit"></i>
                     </a>
                 </form>
@@ -59,86 +58,75 @@ require_once 'helpers/conn_helpers.php';
 
         <div class="main p-3">
             <div class="text-center">
-            <h1 class="inventory-title">PRODUCT LISTS</h1>
+                <h1 class="inventory-title">PRODUCT LISTS</h1>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            
-                        </div>
-                        <div class="col-md-6">
-                            <form method="GET">
-                                <input type="text" class="form-control-group" name="search"
-                                    placeholder="Search products..." required>
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <?php
-                        if (isset($_GET['search'])) {
-                            $search = $_GET['search'];
-                            // Modify your SQL query to filter based on search query
-                            $sql = "SELECT * FROM product_table WHERE product_name LIKE '%$search%'";
-                        } else {
-                            $sql = 'SELECT * FROM product_table';
-                        }
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                ?>
-                                <div class="col-md-4">
-                                    <div class="card product_card" style="width: 18rem;">
-                                        <div class="row justify-content-start">
-                                            <div class="col-12">
-                                                <span class="badge bg-info">
-                                                    <?php echo $row['product_category']; ?>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <img src="img/products/<?php echo $row['product_image']; ?>"
-                                                    class="card-img-top product_image"
-                                                    alt="<?php echo $row['product_name']; ?>">
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="card-body">
-                                                    <h5 class="card-title text-center">
-                                                        <?php echo $row['product_name']; ?>
-                                                    </h5>
-                                                    <div class="price_stock">
-                                                        <h1 class="price_text">
-                                                            Price: ₱
-                                                            <?php echo $row['price']; ?>
-                                                        </h1>
-                                                        <h1 class="stock_text">
-                                                            In stock x
-                                                            <?php echo $row['stock']; ?>
-                                                        </h1>
-                                                    </div>
-                                                    <hr />
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                        } else {
-                            echo "0 results";
-                        }
-                        ?>
-                    </div>
+                <div class="col-md-6 mx-auto">
+                    <form method="GET" class="d-flex">
+                        <input type="text" class="form-control me-2" name="search" placeholder="Search products...">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
                 </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-                crossorigin="anonymous">
-                </script>
-            <script src="WorkingSidebar.js"></script>
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 mt-3"> <!-- Updated to show 4 columns on large screens -->
+                <?php
+                if (isset($_GET['search'])) {
+                    $search = $_GET['search'];
+                    $sql = "SELECT * FROM product_table WHERE product_name LIKE '%$search%'";
+                } else {
+                    $sql = 'SELECT * FROM product_table';
+                }
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="col">
+                    <div class="card product_card">
+                        <div class="row justify-content-start">
+                            <div class="col-12">
+                                <span class="badge bg-info">
+                                    <?php echo $row['product_category']; ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <img src="img/products/<?php echo $row['product_image']; ?>"
+                                    class="card-img-top product_image" alt="<?php echo $row['product_name']; ?>">
+                            </div>
+                            <div class="col-12">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <?php echo $row['product_name']; ?>
+                                    </h5>
+                                    <div class="price_stock">
+                                        <h1 class="price_text">
+                                            ₱ <?php echo $row['price']; ?>
+                                        </h1>
+                                        <h1 class="stock_text">
+                                            In stock: <?php echo $row['stock']; ?>
+                                        </h1>
+                                    </div>
+                                    <hr />
+                                    <!-- Add your button or action here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    }
+                } else {
+                    echo "0 results";
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="WorkingSidebar.js"></script>
 </body>
 
 </html>
