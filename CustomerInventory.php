@@ -59,7 +59,7 @@ require_once 'helpers/conn_helpers.php';
 
         <div class="main p-3">
             <div class="text-center">
-            <h1 class="inventory-title">PRODUCTS LIST</h1>
+            <h1 class="inventory-title">PRODUCT LISTS</h1>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -114,13 +114,12 @@ require_once 'helpers/conn_helpers.php';
                                                             <?php echo $row['price']; ?>
                                                         </h1>
                                                         <h1 class="stock_text">
-                                                            Stock:
+                                                            In stock x
                                                             <?php echo $row['stock']; ?>
                                                         </h1>
                                                     </div>
                                                     <hr />
-                                                    <a href="CustomerProductDetails.php?product_id=<?php echo $row['product_id']; ?>"
-                                                        class="btn btn-success">View Product</a>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
