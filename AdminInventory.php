@@ -145,9 +145,9 @@ if (isset($_GET["editproduct"])) {
                                     </div>
                                     <div class="col-md-9 col-lg-10">
                                         <div class="card-body">
-                                            <p class="card-text"><small class="text-category">
+                                        <span class="product-category">
                                                     <?php echo $product_category; ?>
-                                                </small></p>
+                                                </span>
                                             <h5 class="card-title">
                                                 <?php echo $product_name; ?>
                                             </h5>
