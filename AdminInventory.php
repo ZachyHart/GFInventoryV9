@@ -106,7 +106,7 @@ if (isset($_GET["editproduct"])) {
                 <form method="GET">
                     <input type="text" class="form-control-group" name="search" placeholder="Search products..."
                         required>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-search">Search</button>
                 </form>
             </div>
 

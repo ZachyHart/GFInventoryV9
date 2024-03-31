@@ -58,13 +58,13 @@ require_once 'helpers/conn_helpers.php';
 
         <div class="main p-3">
             <div class="text-center">
-                <h1 class="inventory-title">PRODUCT LISTS</h1>
+                <h1 class="inventory-title">PRODUCT LIST</h1>
             </div>
             <div class="row">
                 <div class="col-md-6 mx-auto">
                     <form method="GET" class="d-flex">
                         <input type="text" class="form-control me-2" name="search" placeholder="Search products...">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-search">Search</button>
                     </form>
                 </div>
             </div>
