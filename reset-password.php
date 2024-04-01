@@ -37,7 +37,7 @@ include_once './helpers/session_helper.php';
         <input type="text" class="form-control mb-3" name="usersEmail" placeholder="Email" autofocus="true"/>
         <br><br>
         <div id="button_container" class="text-center mt-3" name="submit">
-                            <button type="submit" button class="btn btn-primary">Receive Email</button>
+                            <button type="submit" button class="btn btn-primary">RECEIVE EMAIL</button>
 
     </form>
 
