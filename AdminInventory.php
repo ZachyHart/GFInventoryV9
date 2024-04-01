@@ -54,8 +54,7 @@ if (isset($_GET["editproduct"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Got Funko Collections</title>
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
@@ -71,8 +70,7 @@ if (isset($_GET["editproduct"])) {
         <aside id="sidebar">
             <!-- Sidebar content goes here -->
             <div class="sidebar-logo">
-                <img src="img/CircularLogo.jpg" alt="Logo"
-                    style="width: 100%; max-width: 120px; display: block; margin: 0 auto;">
+                <img src="img/CircularLogo.jpg" alt="Logo" style="width: 100%; max-width: 120px; display: block; margin: 0 auto;">
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -92,8 +90,7 @@ if (isset($_GET["editproduct"])) {
             <div class="sidebar-footer">
                 <form action="controllers/Users.php" method="post" id="logout">
                     <input type="hidden" name="type" value="logout">
-                    <a href="javascript:{}" onclick="document.getElementById('logout').submit();" class="sidebar-link"
-                        title="Logout" id="logout" type="submit">
+                    <a href="javascript:{}" onclick="document.getElementById('logout').submit();" class="sidebar-link" title="Logout" id="logout" type="submit">
                         <i class="lni lni-exit"></i>
                     </a>
                 </form>
@@ -103,19 +100,18 @@ if (isset($_GET["editproduct"])) {
         <div class="main p-3">
             <div class="text-center mb-4">
                 <h1 class="inventory-title">Inventory</h1>
-        <div class="row">
-        <div class="col-md-6 mx-auto"> 
-            <form method="GET" class="d-flex">
-                <input type="text" class="form-control me-2" name="search" placeholder="Search products..." required>
-                <button type="submit" class="btn btn-search">Search</button>
-            </form>
-        </div>
-    </div>
-</div>
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <form method="GET" class="d-flex">
+                            <input type="text" class="form-control me-2" name="search" placeholder="Search products..." required>
+                            <button type="submit" class="btn btn-search">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
 
-            <button class="btn btn-primary btn-custom-position" type="button" data-bs-toggle="modal"
-                data-bs-target="#addProductModal">ADD PRODUCT</button>
+            <button class="btn btn-primary btn-custom-position" type="button" data-bs-toggle="modal" data-bs-target="#addProductModal">ADD PRODUCT</button>
             <div class="container">
                 <div class="row">
                     <!-- Product Cards -->
@@ -136,21 +132,19 @@ if (isset($_GET["editproduct"])) {
                         $price = $row['price'];
                         $stock = $row['stock'];
 
-                        ?>
+                    ?>
                         <div class="col-12">
                             <div class="card mb-3">
                                 <div class="row g-0 align-items-center">
                                     <div class="col-md-3 col-lg-2">
-                                        <input type="hidden" id="product_id" name="product_id"
-                                            value="<?php echo $product_id; ?>">
-                                        <img src=" img/products/<?php echo $product_image; ?>"
-                                            class="img-fluid rounded-start product-img-custom" alt="Product Image">
+                                        <input type="hidden" id="product_id" name="product_id" value="<?php echo $product_id; ?>">
+                                        <img src=" img/products/<?php echo $product_image; ?>" class="img-fluid rounded-start product-img-custom" alt="Product Image">
                                     </div>
                                     <div class="col-md-9 col-lg-10">
                                         <div class="card-body">
-                                        <span class="product-category">
-                                                    <?php echo $product_category; ?>
-                                                </span>
+                                            <span class="product-category">
+                                                <?php echo $product_category; ?>
+                                            </span>
                                             <h5 class="card-title">
                                                 <?php echo $product_name; ?>
                                             </h5>
@@ -163,18 +157,11 @@ if (isset($_GET["editproduct"])) {
                                                     </small></p>
                                                 <!-- Edit button with data attributes -->
                                                 <div class="d-flex gap-3">
-                                                    <button class="btn btn-edit" type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#editProductModal"
-                                                        data-product-name="<?php echo $product_name; ?>"
-                                                        data-product-id=" <?php echo $product_id; ?>"
-                                                        data-product-category="<?php echo $product_category; ?>"
-                                                        data-price=" <?php echo $price; ?>" data-stock="<?php echo $stock;
-                                                           ?>">
+                                                    <button class="btn btn-edit" type="button" data-bs-toggle="modal" data-bs-target="#editProductModal" data-product-name="<?php echo $product_name; ?>" data-product-id=" <?php echo $product_id; ?>" data-product-category="<?php echo $product_category; ?>" data-price=" <?php echo $price; ?>" data-stock="<?php echo $stock;
+                                                                                                                                                                                                                                                                                                                                                                    ?>">
                                                         Edit
                                                     </button>
-                                                    <button class="btn btn-delete" type="button" data-bs-toggle="modal"
-                                                        data-product-id="<?php echo $product_id; ?>"
-                                                        data-bs-target=" #deleteProductModal">
+                                                    <button class="btn btn-delete" type="button" data-bs-toggle="modal" data-product-id="<?php echo $product_id; ?>" data-bs-target=" #deleteProductModal">
                                                         Delete
                                                     </button>
                                                 </div>
@@ -184,7 +171,7 @@ if (isset($_GET["editproduct"])) {
                                 </div>
                             </div>
                         </div>
-                        <?php
+                    <?php
                     }
                     ?>
                 </div>
@@ -194,8 +181,7 @@ if (isset($_GET["editproduct"])) {
     </div>
 
     <!-- Add Product Modal -->
-    <div class=" modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
-        aria-hidden="true">
+    <div class=" modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -205,18 +191,15 @@ if (isset($_GET["editproduct"])) {
                 </div>
 
                 <div class="modal-body">
-                    <form id="addProductForm" method="post" action="./controllers/addProduct.php"
-                        enctype="multipart/form-data">
+                    <form id="addProductForm" method="post" action="./controllers/addProduct.php" enctype="multipart/form-data">
                         <div class=" mb-3">
                             <label for="productImage" class="form-label">Product
                                 Image</label>
-                            <input type="file" class="form-control" id="product_image" required accept="image/*"
-                                name="product_image">
+                            <input type="file" class="form-control" id="product_image" required accept="image/*" name="product_image">
                         </div>
                         <div class="mb-3">
                             <label for="productCategory" class="form-label">Product Category</label>
-                            <input type="text" class="form-control" id="product_category" name="product_category"
-                                required>
+                            <input type="text" class="form-control" id="product_category" name="product_category" required>
                         </div>
                         <div class="mb-3">
                             <label for="productName" class="form-label">Product
@@ -243,8 +226,7 @@ if (isset($_GET["editproduct"])) {
     </div>
 
     <!-- Edit modal -->
-    <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -254,14 +236,12 @@ if (isset($_GET["editproduct"])) {
                 </div>
 
                 <div class="modal-body">
-                    <form id="editProductForm" method="post" action="./controllers/editProduct.php"
-                        enctype="multipart/form-data">
+                    <form id="editProductForm" method="post" action="./controllers/editProduct.php" enctype="multipart/form-data">
                         <input type="hidden" id="product_id" name="product_id">
                         <div class=" mb-3">
                             <label for="productImage" class="form-label">Product
                                 Image</label>
-                            <input type="file" class="form-control" id="product_image_edit" accept="image/*"
-                                name="product_image" disabled>
+                            <input type="file" class="form-control" id="product_image_edit" accept="image/*" name="product_image" disabled>
                         </div>
                         <div class="mb-3">
                             <input type="checkbox" id="changeImage" name="changeImage" value="changeImage">
@@ -299,8 +279,7 @@ if (isset($_GET["editproduct"])) {
     </div>
 
     <!-- Delete modal -->
-    <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteProductModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteProductModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
@@ -324,9 +303,8 @@ if (isset($_GET["editproduct"])) {
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
     <script src="AdminInventory.js"></script>
 </body>
 
