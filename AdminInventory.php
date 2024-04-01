@@ -103,14 +103,17 @@ if (isset($_GET["editproduct"])) {
         <div class="main p-3">
             <div class="text-center mb-4">
                 <h1 class="inventory-title">Inventory</h1>
-                <form method="GET">
-                    <input type="text" class="form-control-group" name="search" placeholder="Search products..."
-                        required>
-                    <button type="submit" class="btn btn-search">Search</button>
-                </form>
-            </div>
+        <div class="row">
+        <div class="col-md-6 mx-auto"> 
+            <form method="GET" class="d-flex">
+                <input type="text" class="form-control me-2" name="search" placeholder="Search products..." required>
+                <button type="submit" class="btn btn-search">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
 
-            
+
             <button class="btn btn-primary btn-custom-position" type="button" data-bs-toggle="modal"
                 data-bs-target="#addProductModal">ADD PRODUCT</button>
             <div class="container">
